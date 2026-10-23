@@ -36,7 +36,7 @@ Reviewed v0.1.0 draft before first publish. All 🔴 blockers were fixed in the 
 
 - `README.md:80`（实现 `ai_sync_audit.py:44`、`:68`；忽略规则 `.gitignore:1`）说明写的是只读文件名、mtime 和可选的一个时间字段。`json.load` 会解析整份 JSON；`--json` 的 `newest` 是展开后的绝对路径，里面有用户名；gitignore 只忽略默认文件名 `ai-sync.json`。修法：写明会整份解析、报告含本机路径、不外发，并把任意 `--config` 文件名也排除出 git。
 
-- `install.md:12`（相对命令在 `:27`；链接在 `README.md:9`）Claude 只要求复制 `SKILL.md`，没写 `~/.claude/skills/multi-ai-sync/`，技能目录里也没有脚本。第 5、7 步是相对路径，换一个 shell 就找不到。链接写死 `blob/main`，当前分支是 `release/v0.1.0`。修法：技能目录同时放脚本，步骤用绝对路径，链接改到 tag `v0.1.0` 或先确认 `main` 上已有这份文件。
+- `install.md:12`（相对命令在 `:27`；链接在 `README.md:9`）Claude 只要求复制 `SKILL.md`，没写 Claude Code 技能目录下的 `multi-ai-sync/` 文件夹，技能目录里也没有脚本。第 5、7 步是相对路径，换一个 shell 就找不到。链接写死 `blob/main`，当前分支是 `release/v0.1.0`。修法：技能目录同时放脚本，步骤用绝对路径，链接改到 tag `v0.1.0` 或先确认 `main` 上已有这份文件。
 
 - `examples/config.example.json:6` `--init` 放进去的是像某台 Mac 上的真实布局（`sand-client-persistence`、`~/.claude/projects/**/*.jsonl`）。agent 经常照抄，目录一对不上就一直 MISSING。修法：改成明显的占位符，并写上必须对照本机改。
 
