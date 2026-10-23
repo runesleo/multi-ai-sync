@@ -1,0 +1,6 @@
+ai-sync.json
+*.local.json
+__pycache__/
+*.pyc
+.env
+.DS_Store

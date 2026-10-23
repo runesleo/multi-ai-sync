@@ -1,0 +1,25 @@
+{
+  "_comment": "Placeholders. Replace every path with where that agent's files actually live on this computer.",
+  "max_age_hours": 36,
+  "agents": [
+    {
+      "name": "Cloud agent (main)",
+      "chat": "~/REPLACE/cloud-agent/local-transcripts/*",
+      "results": "~/REPLACE/ai-mirror/main/outbox/**/*.md",
+      "memory": "~/REPLACE/ai-mirror/main/memory/main.md"
+    },
+    {
+      "name": "Cloud agent (trackers)",
+      "results": "~/REPLACE/ai-mirror/main/outbox/projects/*/latest.json",
+      "results_mode": "every",
+      "results_time_field": "observed_at",
+      "memory": "~/REPLACE/ai-mirror/main/memory/trackers.md",
+      "max_age_hours": 26
+    },
+    {
+      "name": "Local coding agent",
+      "chat": "~/REPLACE/local-agent/sessions/**/*.jsonl",
+      "memory": "~/REPLACE/local-agent/memory/*.md"
+    }
+  ]
+}
