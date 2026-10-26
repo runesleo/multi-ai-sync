@@ -9,7 +9,7 @@ Pick one machine (usually your laptop) as the place where facts live. Every othe
 
 ## 1. Audit first — "readable" is not "received"
 
-Check three layers separately, with numbers, before claiming coverage. `ai_sync_audit.py` in this repo does it from a small JSON config (see README for keys):
+Check three layers separately, with numbers, before claiming coverage. `ai_sync_audit.py` at the root of this repo (two folders above this file when installed as a plugin) does it from a small JSON config (see README for keys):
 
 | Layer | Question |
 |---|---|

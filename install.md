@@ -14,8 +14,8 @@ Run `python3 --version` (3.9+ needed).
 
 - Clone: `git clone https://github.com/runesleo/multi-ai-sync.git <DIR>`
 - Create the config: `python3 <DIR>/ai_sync_audit.py --init --config <DIR>/ai-sync.json`
-- Claude Code: also copy `SKILL.md` **and** `ai_sync_audit.py` into a `multi-ai-sync/` folder in the Claude Code skills directory, so the skill can be invoked by name and the script is next to it.
-- Cursor / Codex / others: add `<DIR>/SKILL.md` to the rules or project instructions the agent reads.
+- Claude Code: also copy `<DIR>/skills/multi-ai-sync/SKILL.md` **and** `<DIR>/ai_sync_audit.py` into a `multi-ai-sync/` folder in the Claude Code skills directory, so the skill can be invoked by name and the script is next to it.
+- Cursor / Codex / others: add `<DIR>/skills/multi-ai-sync/SKILL.md` to the rules or project instructions the agent reads.
 
 ## 3. Fill in the config with the user
 
@@ -30,7 +30,7 @@ Connecting an agent product to this computer, approving its access, or changing 
 
 ## 5. First success
 
-Run `python3 <DIR>/ai_sync_audit.py --config <DIR>/ai-sync.json`. Exit 0 or 1 both mean it worked: show the user the table. For every gap, explain it in one line and point to the matching section of `SKILL.md`.
+Run `python3 <DIR>/ai_sync_audit.py --config <DIR>/ai-sync.json`. Exit 0 or 1 both mean it worked: show the user the table. For every gap, explain it in one line and point to the matching section of `skills/multi-ai-sync/SKILL.md`.
 
 ## 6. Boundaries
 

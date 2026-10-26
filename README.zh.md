@@ -11,13 +11,14 @@
 ## 作为插件安装
 
 - **Claude Code**（2.1.275 及以上）：`/plugin install multi-ai-sync --marketplace runesleo/x-reader`
+- **Codex**：先 `codex plugin marketplace add runesleo/x-reader`，再 `codex plugin add multi-ai-sync@runesleo`
 
 `runesleo` 插件市场里还有 Leo 的其他工具，见 [runesleo/x-reader](https://github.com/runesleo/x-reader)。
 
 ## 你会得到
 
 - **`ai_sync_audit.py`**：一条只读命令，逐个 AI 检查三样东西在不在这台电脑上、新不新：对话、结果文件、记忆。有缺的、过期的、读不出时间的，就返回 1。
-- **`SKILL.md`**：一套任何 AI 都能照着做的方法——先盘点，再查为什么收不到，把方向反过来让 AI 主动推，最后记忆双向同步。
+- **`skills/multi-ai-sync/SKILL.md`**：一套任何 AI 都能照着做的方法——先盘点，再查为什么收不到，把方向反过来让 AI 主动推，最后记忆双向同步。
 
 ## 为什么要做
 
@@ -34,7 +35,7 @@ ai-sync.json（你有哪些 AI、它们的东西应该在哪）
 ai_sync_audit.py  ──►  表格 / JSON：每层 OK · STALE（过期）· MISSING（没有）· UNREADABLE（读不出时间）
         │
         ▼
-有缺口 → 按 SKILL.md：查通路 → 改成 AI 主动推 → 记忆双向同步
+有缺口 → 按 skills/multi-ai-sync/SKILL.md：查通路 → 改成 AI 主动推 → 记忆双向同步
 ```
 
 **输出示例**（数字是示意）：
@@ -88,7 +89,7 @@ python3 ai_sync_audit.py --init      # Windows 用 py -3 ai_sync_audit.py --init
 
 `*` 只匹配一层、不匹配点号开头的文件，跟 Python 的 `glob` 一样。没写时区的时间按 UTC 算。
 
-**任何 AI 编程助手**：让它读 `SKILL.md` 就行，不绑定框架。
+**任何 AI 编程助手**：让它读 `skills/multi-ai-sync/SKILL.md` 就行，不绑定框架。
 
 ## 环境要求
 
@@ -118,8 +119,8 @@ python3 ai_sync_audit.py --json       # 给脚本、定时检查用
 
 - 只查有没有、新不新，不查结果对不对、下游有没有用上。
 - 文件内时间只支持单个 JSON 对象的顶层字段（还不支持 JSONL、Markdown front-matter）。
-- 用 git 分支交结果的 AI（比如 Cursor 云端）要看提交时间，自查目前还不读提交时间，做法见 `SKILL.md`。
-- 让 AI 推文件回来，前提是你的 AI 产品允许它在你电脑上执行命令；不支持的话，退回「在对话里贴结构化结果」（见 `SKILL.md`）。
+- 用 git 分支交结果的 AI（比如 Cursor 云端）要看提交时间，自查目前还不读提交时间，做法见 `skills/multi-ai-sync/SKILL.md`。
+- 让 AI 推文件回来，前提是你的 AI 产品允许它在你电脑上执行命令；不支持的话，退回「在对话里贴结构化结果」（见 `skills/multi-ai-sync/SKILL.md`）。
 
 ## 计划
 
