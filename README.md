@@ -11,13 +11,14 @@ For people who run more than one AI (Grok Bot + Claude Code, Cursor cloud agents
 ## Install as a plugin
 
 - **Claude Code** (2.1.275 or later): `/plugin install multi-ai-sync --marketplace runesleo/x-reader`
+- **Codex**: `codex plugin marketplace add runesleo/x-reader`, then `codex plugin add multi-ai-sync@runesleo`
 
 The `runesleo` marketplace also lists Leo's other tools; see [runesleo/x-reader](https://github.com/runesleo/x-reader).
 
 ## What you get
 
 - **`ai_sync_audit.py`** — one read-only command that checks, per agent, whether its chats, result files and memory are on this machine and how fresh they are. Exit code 1 when anything is missing, stale or has no usable timestamp.
-- **`SKILL.md`** — the method, written so any AI agent can follow it: audit, find out why results don't arrive, reverse the direction so the agent pushes, and sync memory both ways.
+- **`skills/multi-ai-sync/SKILL.md`** — the method, written so any AI agent can follow it: audit, find out why results don't arrive, reverse the direction so the agent pushes, and sync memory both ways.
 
 ## Why
 
@@ -32,7 +33,7 @@ ai-sync.json (your agents + where their stuff should be)
 ai_sync_audit.py  ──►  table / JSON: OK · STALE · MISSING · UNREADABLE per layer
         │
         ▼
-gaps → SKILL.md: check the transport → agent pushes → memory both ways
+gaps → skills/multi-ai-sync/SKILL.md: check the transport → agent pushes → memory both ways
 ```
 
 **Output example** (illustrative numbers):
@@ -86,7 +87,7 @@ Tip: for a fixed set of agents, list their exact paths (`"results": ["…/a/late
 
 `*` matches one level and skips dot-files, as in Python's `glob`. Timestamps without a timezone are read as UTC.
 
-**Any AI coding agent:** point it at `SKILL.md`. No framework lock-in.
+**Any AI coding agent:** point it at `skills/multi-ai-sync/SKILL.md`. No framework lock-in.
 
 ## Requirements
 
@@ -116,8 +117,8 @@ The push fix was observed in one setup over one day. Not run on Python 3.9 yet (
 
 - Checks presence and freshness — not whether a result is *correct* or was *used* downstream.
 - Content timestamps: top-level field of a single JSON object only (no JSONL, no Markdown front-matter yet).
-- Git branches as results (e.g. Cursor cloud agents) need commit time, which the audit doesn't read yet — see `SKILL.md`.
-- Pushing files back needs an agent product that can run commands on your computer. Without that, fall back to structured results in chat (`SKILL.md`).
+- Git branches as results (e.g. Cursor cloud agents) need commit time, which the audit doesn't read yet — see `skills/multi-ai-sync/SKILL.md`.
+- Pushing files back needs an agent product that can run commands on your computer. Without that, fall back to structured results in chat (`skills/multi-ai-sync/SKILL.md`).
 
 ## Roadmap
 
