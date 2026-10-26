@@ -8,6 +8,12 @@
 
 > 复制给你的 AI：*按照 https://github.com/runesleo/multi-ai-sync/blob/main/install.md 的官方说明，在这台电脑上安装 multi-ai-sync。*
 
+## 作为插件安装
+
+- **Claude Code**（2.1.275 及以上）：`/plugin install multi-ai-sync --marketplace runesleo/x-reader`
+
+`runesleo` 插件市场里还有 Leo 的其他工具，见 [runesleo/x-reader](https://github.com/runesleo/x-reader)。
+
 ## 你会得到
 
 - **`ai_sync_audit.py`**：一条只读命令，逐个 AI 检查三样东西在不在这台电脑上、新不新：对话、结果文件、记忆。有缺的、过期的、读不出时间的，就返回 1。

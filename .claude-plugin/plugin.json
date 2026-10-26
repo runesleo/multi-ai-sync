@@ -1,0 +1,19 @@
+{
+  "name": "multi-ai-sync",
+  "version": "0.1.0",
+  "description": "For people running several AI agents: check which agents' results and memory never reached your machine, and fix it.",
+  "author": {
+    "name": "Leo",
+    "url": "https://github.com/runesleo"
+  },
+  "homepage": "https://github.com/runesleo/multi-ai-sync",
+  "repository": "https://github.com/runesleo/multi-ai-sync",
+  "license": "MIT",
+  "keywords": [
+    "agents",
+    "sync",
+    "memory",
+    "audit"
+  ],
+  "skills": "./"
+}

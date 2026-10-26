@@ -8,6 +8,12 @@ For people who run more than one AI (Grok Bot + Claude Code, Cursor cloud agents
 
 > Copy into your AI agent: *Set up multi-ai-sync on this computer by following the official instructions at https://github.com/runesleo/multi-ai-sync/blob/main/install.md.*
 
+## Install as a plugin
+
+- **Claude Code** (2.1.275 or later): `/plugin install multi-ai-sync --marketplace runesleo/x-reader`
+
+The `runesleo` marketplace also lists Leo's other tools; see [runesleo/x-reader](https://github.com/runesleo/x-reader).
+
 ## What you get
 
 - **`ai_sync_audit.py`** — one read-only command that checks, per agent, whether its chats, result files and memory are on this machine and how fresh they are. Exit code 1 when anything is missing, stale or has no usable timestamp.
