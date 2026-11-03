@@ -9,6 +9,7 @@
   "homepage": "https://github.com/runesleo/multi-ai-sync",
   "repository": "https://github.com/runesleo/multi-ai-sync",
   "license": "MIT",
+  "privacyPolicyUrl": "https://github.com/runesleo/multi-ai-sync#data-and-network-access",
   "keywords": [
     "agents",
     "sync",

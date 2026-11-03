@@ -126,6 +126,22 @@ The push fix was observed in one setup over one day. Not run on Python 3.9 yet (
 - JSONL and front-matter timestamps
 - Optional "used downstream" layer (a receipt per consumed result)
 
+## Data and network access
+
+The audit script makes no network calls, has no telemetry, and sends nothing to the author. Data moves only between your own agents and your own machine, and only through steps you set up.
+
+| What | Where it goes |
+|---|---|
+| Installing the plugin | Your agent client downloads this repository from GitHub at a pinned commit |
+| The audit (`ai_sync_audit.py`) | Nowhere. It reads local files and prints a report to stdout |
+| Agent results and memory, if you apply the push fix in the skill | From your own agents to your machine, through the computer connector your agent product provides |
+| Your local rules, if you set up local → agent memory sync | Into your own agents' memory, through that agent product |
+| Results of git-based agents (e.g. Cursor cloud agents) | Fetched with `git fetch` from your own repository remote |
+
+What the audit reads: only the paths in your config, which usually point at other agents' chat transcripts, result files, and memory. It reads file names and modification times, and fully parses only JSON files you set a `*_time_field` for. The only environment it reads is `~` and `$VARS` used in those paths. It never reads credentials, and the skill says never to sync credentials, wallet addresses, amounts, or client data into any memory.
+
+Stored only on your machine: `ai-sync.json` (written by `--init`; git-ignored), the mirror folders you choose for pushed results and memory, and any scheduled job you add yourself. The audit itself writes nothing else.
+
 ## About the author
 
 *Leo ([@runes_leo](https://x.com/runes_leo)) — AI × Crypto independent builder, running a small team of AI agents with Claude Code, Grok Bot and Cursor.*
